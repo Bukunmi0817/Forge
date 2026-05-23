@@ -1,0 +1,37 @@
+version: "3.9"
+
+services:
+  registry:
+    build:
+      context: .
+      dockerfile: Dockerfile.registry
+    container_name: forge-registry
+    restart: unless-stopped
+    ports:
+      - "8001:8001"
+    volumes:
+      - forge-data:/app/data
+      - ./config.yaml:/app/config.yaml:ro
+    environment:
+      - PYTHONUNBUFFERED=1
+
+  engine:
+    build:
+      context: .
+      dockerfile: Dockerfile.engine
+    container_name: forge-engine
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    volumes:
+      - forge-data:/app/data
+      - ./config.yaml:/app/config.yaml:ro
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - registry
+
+volumes:
+  forge-data:
+    driver: local

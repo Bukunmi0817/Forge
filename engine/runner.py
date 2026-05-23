@@ -51,7 +51,7 @@ class JobRunner:
         self._log(f"[forge] Starting job '{self.job.name}'")
         self._log(f"[forge] Runtime: {self.job.runtime}")
         self._log(f"[forge] CPU: {self.job.resources.cpu} Memory: {self.job.resources.memory_mb}MB")
-        self.workspace = tempfile.mkdtemp(prefix=f"forge-{self.run_id}-{self.job.name}-")
+        self.workspace = tempfile.mkdtemp(prefix=f"forge-{self.run_id}-{self.job.name}-", dir="/tmp")
 
         try:
             ok = await self._download_deps()

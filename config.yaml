@@ -7,7 +7,7 @@ registry:
 engine:
   host: "0.0.0.0"
   port: 8000
-  registry_url: "http://localhost:8001"
+  registry_url: "http://registry:8001"
   logs_path: "./data/logs"
   max_concurrent_jobs: 4
   default_job_timeout: 1800
