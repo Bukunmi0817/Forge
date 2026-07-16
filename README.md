@@ -1,8 +1,8 @@
-# Forge — CI/CD Platform with Integrated Artifact Registry
+# Forge CI/CD Platform with Integrated Artifact Registry
 
 ## Public URL
-- CI Engine:  http://52.201.230.178:8000
-- Registry:   http://52.201.230.178:8001
+- CI Engine:  http://xx.xxx.xxx.xxx:8000
+- Registry:   http://xx.xxx.xxx.xxx:8001
 
 ## Fresh VPS Setup
 
